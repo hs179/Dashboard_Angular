@@ -1,0 +1,92 @@
+<!-- <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+<app-card-component>
+
+  <div class="row">
+    @for (item of filterdata; track $index) {
+  <div class="col-md-3 mt-2 mb-3">
+  <div class="card">
+  <img  src= "{{item.image}}"alt="Card Image" class="card-img" />
+  <div class="card-body">
+    <h3 class="card-title">Card Title</h3>
+    <p #titlevalue class="card-text">
+     {{item.title}}
+    </p>
+
+    <button class="card-btn">Read More</button>
+  </div>
+</div>
+  </div>
+  
+}
+  </div>
+  
+
+</app-card-component>
+
+
+
+<app-search-analytics-component></app-search-analytics-component>
+
+ -->
+
+
+
+
+
+
+ <ul class="nav justify-content-end">
+  <!-- ... your nav items ... -->
+</ul>
+
+<app-card-component>
+  <div class="row">
+    
+    @if (!filterdata) {
+      <!-- 1. SKELETON LAYER (Repeats 8 times while loading) -->
+      @for (i of [1,2,3,4,5,6,7,8]; track $index) {
+        <div class="col-md-3 mt-2 mb-3">
+          <div class="card" style="border:none">
+            <div class="skeleton skeleton-img"></div>
+            <div class="card-body">
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text" style="width: 70%"></div>
+              <div class="skeleton skeleton-btn"></div>
+            </div>
+          </div>
+        </div>
+      }
+    } @else {
+      <!-- 2. ACTUAL DATA LAYER -->
+      @for (item of filterdata; track item.id) {
+        <div class="col-md-3 mt-2 mb-3">
+          <div class="card">
+            <!-- Optimization: Use [ngSrc] here in a real app -->
+            <img [src]="item.image" alt="Card Image" class="card-img" />
+            <div class="card-body">
+              <h3 class="card-title">Card Title</h3>
+              <p class="card-text">{{item.title}}</p>
+              <button class="card-btn">Read More</button>
+            </div>
+          </div>
+        </div>
+      }
+    }
+    
+  </div>
+</app-card-component>
+
+<app-search-analytics-component></app-search-analytics-component>

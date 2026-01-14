@@ -1,0 +1,42 @@
+.forms-container {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 20px;
+
+    button {
+        padding: 12px 24px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            color: #3b82f6;
+        }
+
+        &.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+    }
+}
+
+.tab-content {
+    flex: 1;
+    overflow-y: auto;
+}

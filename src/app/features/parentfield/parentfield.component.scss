@@ -1,0 +1,116 @@
+// Reusing Dashboard Core Styles
+.page-wrapper {
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &.light { background-color: #f8f9fa; color: #212529; }
+  &.dark { background-color: #0b0e14; color: #f8f9fa; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding-bottom: 1rem;
+
+  .brand {
+    h1 { margin: 0; font-size: 1.5rem; font-weight: 700; }
+    .badge { 
+      font-size: 0.7rem; background: #36a2eb; color: white; 
+      padding: 2px 8px; border-radius: 10px; margin-top: 5px; display: inline-block;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+// Reusing Toggle Button Style
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  background: rgba(128, 128, 128, 0.1);
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover { background: rgba(128, 128, 128, 0.2); transform: translateY(-2px); }
+  &.primary { background: #36a2eb; color: white; border: none; }
+  &.back-btn { background: rgba(54, 162, 235, 0.1); border-color: rgba(54, 162, 235, 0.3); }
+}
+
+// Form Container Logic
+.chart-container {
+  background: rgba(128, 128, 128, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-left: 5px;
+  }
+
+  // Matching the .limit-group input style
+  .input-wrapper {
+    background: rgba(128, 128, 128, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: 5px 15px;
+    transition: border-color 0.3s;
+
+    &:focus-within { border-color: #36a2eb; }
+
+    input, select {
+      background: transparent;
+      border: none;
+      width: 100%;
+      height: 40px;
+      color: inherit;
+      outline: none;
+      font-size: 0.95rem;
+      font-family: inherit;
+
+      option { background: #212529; color: white; } // Dark mode support for options
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+  padding-top: 1.5rem;
+}
+
+// Adjustments for light theme specifically if needed
+.page-wrapper.light {
+  .input-wrapper option { background: white; color: black; }
+}

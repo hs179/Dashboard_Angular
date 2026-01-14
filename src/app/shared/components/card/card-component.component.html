@@ -1,0 +1,6 @@
+<label class="mx-auto d-block text-center"> Search: 
+  <input type="text" (ngModelChange)="takedata($event)" [(ngModel)]="valueFromSearch">
+</label>
+<div class="card">
+  <ng-content></ng-content>
+</div>

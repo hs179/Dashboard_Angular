@@ -11,6 +11,12 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+    "paths": {
+      "my-shared-lib": [
+        "./dist/my-shared-lib"
+      ]
+     
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,

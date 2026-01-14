@@ -1,0 +1,43 @@
+<div [class]="'page-wrapper ' + chartService.theme()">
+  <div class="header">
+    <div class="brand">
+      <h1>Product Analytics</h1>
+      <span class="badge">SVG Engine</span>
+    </div>
+      <lib-my-shared-lib companyName="Dashboard"></lib-my-shared-lib>
+
+    <div class="controls">
+      <div class="limit-group">
+        <label>Limit</label>
+        <input 
+          type="text" 
+          [ngModel]="limit()" 
+          (ngModelChange)="onLimitChange($event)"
+          min="1" 
+          max="10000"
+        />
+      </div>
+
+      <button class="toggle-btn" (click)="chartService.toggleTheme()">
+        <span class="icon">{{ chartService.theme() === 'light' ? '🌙' : '☀️' }}</span>
+        {{ chartService.theme() | uppercase }}
+      </button>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    @if (chartService.chartOptions()) {
+      <div echarts 
+           [options]="chartService.chartOptions()!" 
+           [theme]="chartService.theme()" 
+           [initOpts]="{ renderer: 'svg' }"
+           class="chart-box">
+      </div>
+    } @else {
+      <div class="loader-wrapper">
+        <div class="spinner"></div>
+        <p>Analyzing {{limit()}} Products...</p>
+      </div>
+    }
+  </div>
+</div>

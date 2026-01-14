@@ -1,0 +1,20 @@
+<div class="forms-container">
+    <div class="tabs">
+        <button [class.active]="activeTab === 'reactive'" (click)="setActiveTab('reactive')">
+            Reactive Form
+        </button>
+        <button [class.active]="activeTab === 'template'" (click)="setActiveTab('template')">
+            Template Form
+        </button>
+    </div>
+
+    <div class="tab-content">
+        <ng-container *ngIf="activeTab === 'reactive'">
+            <app-parentfield></app-parentfield>
+        </ng-container>
+
+        <ng-container *ngIf="activeTab === 'template'">
+            <app-template-form></app-template-form>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+div {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+thead tr {
+  height: 60px;
+}
+
+thead td {
+  padding: 15px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+}
+
+/* Optional: Add hover effect on header */
+thead tr:hover {
+  background: linear-gradient(135deg, #1565c0, #1e88e5);
+}
+
+tbody tr {
+  height: 55px;
+  transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fbff;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.01);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+tbody td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  thead td,
+  tbody td {
+    padding: 12px 10px;
+  }
+  thead {
+    font-size: 13px;
+  }
+}

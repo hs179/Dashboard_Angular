@@ -1,0 +1,72 @@
+<div class="login-container" [class.dark-theme]="isDarkMode">
+  <div class="background-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <div class="login-wrapper">
+    <div class="login-card glass-effect">
+      <div class="card-header">
+        <h2 class="title">Welcome Back</h2>
+        <p class="subtitle">Enter your credentials to access your dashboard.</p>
+      </div>
+
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="isDarkMode">
+          <span class="slider round">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </div>
+
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-wrapper">
+            <input type="text" id="username" name="username" [(ngModel)]="credentials.username" required
+              placeholder="Ex: dash, shop, form" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required
+              placeholder="••••••••" class="form-control">
+          </div>
+        </div>
+
+        <div class="error-message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="!loginForm.form.valid">
+          <span>Sign In</span>
+          <div class="btn-glow"></div>
+        </button>
+      </form>
+
+      <div class="card-footer">
+        <p>Don't have an account? <a href="#">Request Access</a></p>
+      </div>
+    </div>
+
+    <div class="visual-side">
+      <div class="dashboard-preview-3d">
+        <div class="chart-cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+        <div class="floating-card c1"></div>
+        <div class="floating-card c2"></div>
+      </div>
+    </div>
+  </div>
+</div>

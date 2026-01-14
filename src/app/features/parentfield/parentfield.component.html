@@ -1,0 +1,84 @@
+<div [class]="'page-wrapper ' + chartService.theme()">
+  <!-- Header matching Dashboard -->
+  <div class="header">
+    <div class="brand">
+      <h1>Bank Details</h1>
+      <span class="badge">Secure Portal</span>
+    </div>
+
+    <div class="controls">
+      <button class="toggle-btn" (click)="chartService.toggleTheme()">
+        <span class="icon">{{ chartService.theme() === 'light' ? '🌙' : '☀️' }}</span>
+        {{ chartService.theme() | uppercase }}
+      </button>
+      
+      <button type="button" (click)="goToDashboard()" class="toggle-btn back-btn">
+        ← Dashboard
+      </button>
+    </div>
+  </div>
+
+  <!-- Form Container matching Chart Container -->
+  <div class="chart-container form-container">
+    <form [formGroup]="fieldform" (ngSubmit)="onSubmit()" class="modern-form">
+      
+      <div class="form-grid">
+        <div class="field-group">
+          <label>Bank Type *</label>
+          <div class="input-wrapper">
+            <select formControlName="bankType">
+              <option value="">Select Type</option>
+              @for (item of banktypeoption; track item.id) {
+                <option [value]="item.id">{{ item.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Bank Name *</label>
+          <div class="input-wrapper">
+            <select formControlName="bankName">
+              <option value="">
+                {{ filteredBankNames.length === 0 ? 'Select Type First' : 'Select Bank' }}
+              </option>
+              @for (bank of filteredBankNames; track bank.name) {
+                <option [value]="bank.name">{{ bank.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Account Type *</label>
+          <div class="input-wrapper">
+            <select formControlName="accountType">
+              <option value="">Select</option>
+              <option value="savings">Savings Account</option>
+              <option value="current">Current Account</option>
+              <option value="salary">Salary Account</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Account Number *</label>
+          <div class="input-wrapper">
+            <input type="text" formControlName="accountNumber" placeholder="Enter account number">
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="toggle-btn primary">Submit Record</button>
+        <button type="button" class="toggle-btn" (click)="fieldform.reset()">Reset Form</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Table Section -->
+  <div class="table-section" style="margin-top: 2rem;">
+      <app-childtable [record]="forchild"></app-childtable>
+  </div>
+</div>

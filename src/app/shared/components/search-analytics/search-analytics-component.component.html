@@ -1,0 +1,12 @@
+ <div class="alert alert-info mt-3">
+      <p><b>Last Search:</b> {{ service.searchSignal() }}</p>
+      <p><b>Search Count:</b> {{ service.searchCount() }}</p>
+      <p><b>Search Length:</b> {{ service.searchLength() }}</p>
+
+      <p><b>Last 5 Searches:</b></p>
+      <ul>
+        @for (item of service.searchHistory(); track $index) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>

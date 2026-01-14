@@ -1,0 +1,21 @@
+<div class="template-form-wrapper">
+    <h3>Dummy Template Driven Form</h3>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" ngModel required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" ngModel required email placeholder="john@example.com">
+        </div>
+
+        <div class="form-group">
+            <label>Feedback</label>
+            <textarea name="feedback" ngModel required rows="4"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="f.invalid">Submit Template Form</button>
+    </form>
+</div>

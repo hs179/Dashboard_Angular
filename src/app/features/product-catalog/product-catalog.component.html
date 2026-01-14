@@ -1,0 +1,52 @@
+<div class="catalog-container">
+  <header class="header-section">
+    <h1>Marketplace</h1>
+    @if (!isLoading) {
+      <span class="badge">{{ products.length }} items found</span>
+    }
+  </header>
+
+  @if (errorMessage) {
+    <div class="error-banner">
+      <strong>Error:</strong> {{ errorMessage }}
+    </div>
+  }
+
+  <div class="layout-grid">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="filter-group">
+        <label>Filter by Category</label>
+        <select class="category-select">
+          <option value="">All Categories</option>
+          @for (cat of categories; track cat) {
+            <option [value]="cat">{{ cat | titlecase }}</option>
+          }
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      @if (isLoading) {
+        <div class="loading-shimmer">
+          <p>Fetching the latest products for you...</p>
+        </div>
+      }
+
+      <div class="product-grid">
+        @for (item of products; track item.id) {
+          <article class="product-card">
+            <div class="image-wrapper">
+              <img [src]="item.thumbnail" [alt]="item.title" class="product-image">
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">{{ item.title }}</h3>
+              <p class="product-price">${{ item.price }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </main>
+  </div>
+</div>

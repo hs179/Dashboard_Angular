@@ -1,0 +1,26 @@
+<div>
+    <table>
+        
+            <thead>
+                <tr>
+                    <td>Bank Type</td>
+                    <td>Bank Name</td>
+                    <td>Account Type</td>
+                    <td>Account Number</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    @for(value of record; track value.accountNumber){
+                        <tr>
+                         <td>{{value.bankType}}</td>
+                          <td>{{value.bankName}}</td>
+                           <td>{{value.accountType}}</td>
+                            <td>{{value.accountNumber}}</td>
+                            </tr>
+                    }
+              
+            </tbody>
+        
+    </table>
+</div>
