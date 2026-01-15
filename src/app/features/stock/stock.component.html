@@ -5,41 +5,37 @@
     <p>Managing {{ products.length }} items in warehouse</p>
   </header>
 
-   <lib-base-button 
-      label="Submit Form" 
-      btnColor="#dfe6e9" 
-      (btnClick)="handleSave()">
-    </lib-base-button>
+
 
   <div class="product-grid">
     @for (product of products; track product.id) {
-      <div class="product-card">
-        <div class="image-wrapper">
-          <img [src]="product.img" [alt]="product.name">
-          <!-- Passing stock to our custom pipe -->
-          <span class="badge" [ngClass]="product.stock | stockLevel | lowercase ">
-            {{ product.stock | stockLevel }}
-          </span>
-        </div>
+    <div class="product-card">
+      <div class="image-wrapper">
+        <img [src]="product.img" [alt]="product.name">
+        <!-- Passing stock to our custom pipe -->
+        <span class="badge" [ngClass]="product.stock | stockLevel | lowercase ">
+          {{ product.stock | stockLevel }}
+        </span>
+      </div>
 
-        <div class="card-content">
-          <small class="category">{{ product.category }}</small>
-          <h3>{{ product.name }}</h3>
-          <p class="price">${{ product.price }}</p>
-          
-          <div class="stock-info">
-            <span class="stock-count">Units left: {{ product.stock }}</span>
-            <progress [value]="product.stock" max="10"></progress>
-          </div>
-        </div>
-        
-        <div class="card-actions">
-          <button class="btn-restock" [disabled]="product.stock > 0">Restock</button>
-          <button class="btn-view">Details</button>
+      <div class="card-content">
+        <small class="category">{{ product.category }}</small>
+        <h3>{{ product.name }}</h3>
+        <p class="price">${{ product.price }}</p>
+
+        <div class="stock-info">
+          <span class="stock-count">Units left: {{ product.stock }}</span>
+          <progress [value]="product.stock" max="10"></progress>
         </div>
       </div>
+
+      <div class="card-actions">
+        <button class="btn-restock" [disabled]="product.stock > 0">Restock</button>
+        <button class="btn-view">Details</button>
+      </div>
+    </div>
     } @empty {
-      <p>No products found in inventory.</p>
+    <p>No products found in inventory.</p>
     }
   </div>
 </div>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { StockLevelPipe } from '../../shared/pipes/stock-level.pipe';
 import { CommonModule } from '@angular/common';
-import { BaseButtonComponent } from 'my-shared-lib';
 
 @Component({
   selector: 'app-stock',
   standalone: true,
-  imports: [StockLevelPipe, CommonModule, BaseButtonComponent],
+  imports: [StockLevelPipe, CommonModule],
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.scss'
 })
