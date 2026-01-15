@@ -5,13 +5,12 @@ import { NgxEchartsDirective } from 'ngx-echarts';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { MySharedLibComponent } from 'my-shared-lib';
 import { EChartsOption } from 'echarts';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgxEchartsDirective, CommonModule, FormsModule, MySharedLibComponent],
+  imports: [NgxEchartsDirective, CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
