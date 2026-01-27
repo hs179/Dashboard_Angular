@@ -12,6 +12,7 @@ import { PlaygroundComponent } from './features/playground/playground.component'
 import { ParentfieldComponent } from './features/parentfield/parentfield.component';
 import { pendingChangesGuardGuard } from './core/guards/pending-changes-guard.guard';
 import { CardComponentComponent } from './shared/components/card/card-component.component';
+import { MainBodyComponent } from './features/shoppingcart/main-body/main-body.component';
 
 export const routes: Routes = [
     { path: "login", component: LoginComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
         children: [
             { path: "dash", component: DashboardComponent, resolve: { initialProducts: dashboardDataResolver } },
             { path: "forms", component: FormsContainerComponent },
+            { path: "cart", component: MainBodyComponent },
             { path: "stock", component: StockComponent },
             { path: "product", component: ProductCatalogComponent },
             { path: "scroll", component: ProductComponent },

@@ -1,0 +1,47 @@
+<div class="checkout-card">
+    <h3>Your Cart</h3>
+
+    <div class="cart-items">
+
+        <!-- HEADER -->
+        <div class="cart-header">
+            <span class="name">Name</span>
+            <span class="price">Price</span>
+            <span class="count">Count</span>
+            <span class="image">Total Cost</span>
+        </div>
+
+        <!-- ITEMS -->
+        @for (item of showProduct(); track $index) {
+        <div class="cart-item">
+            <div class="item-info">
+                <span class="name">{{ item.name }}</span>
+                <span class="price">{{ item.price }}</span>
+                <span class="count">{{ item.countproduct }}</span>
+                <span class="image">{{ item.price * item.countproduct }}</span>
+            </div>
+        </div>
+        }
+
+    </div>
+
+
+    <hr>
+
+    <div class="summary">
+        <div class="row">
+            <span>Subtotal</span>
+            <span>${{totalCost()}}</span>
+        </div>
+        <div class="row">
+            <span>Tax (10%)</span>
+            <span>${{taxAmount()}}</span>
+        </div>
+        <div class="row total">
+            <span>Total</span>
+            <span>${{grandTotal() }}</span>
+        </div>
+    </div>
+
+    <button class="checkout-btn">Complete Purchase</button>
+</div>

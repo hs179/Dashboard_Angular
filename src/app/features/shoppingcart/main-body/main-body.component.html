@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<main class="page-content">
+    <div class="product-section">
+        <h2 class="section-title">Explore Our Collection</h2>
+
+        <div class="product-grid">
+            @for (product of products; track product.id) {
+            <div class="product-card">
+                <div class="image-area">{{product.image}}</div>
+                <div class="info">
+                    <h3>{{product.name}}</h3>
+                    <p class="price">${{product.price}}</p>
+                    <button class="add-btn" (click)="addtocart(product)">Add to Cart</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <aside class="checkout-section">
+        <app-checkout></app-checkout>
+    </aside>
+</main>
